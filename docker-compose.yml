@@ -4,7 +4,7 @@ services:
         build: ./golang
         container_name: gobot
         environment:
-            - TOKEN=5288340633:AAHdFLdBe1mbikYEF6Ro31gBWpq6wtpHcoQ
+            - TOKEN=<your token for telegram bot>
             - POSTGRES_CONNECT=postgres://postgres:postgrespw@postgresdb:5432/telegram
         depends_on: 
             - postgres
