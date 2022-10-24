@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+    gobot:
+        build: ./golang
+        container_name: gobot
+        environment:
+            - TOKEN=5288340633:AAHdFLdBe1mbikYEF6Ro31gBWpq6wtpHcoQ
+            - POSTGRES_CONNECT=postgres://postgres:postgrespw@postgresdb:5432/telegram
+        depends_on: 
+            - postgres
+    postgres:
+        build: ./postgres
+        environment:
+            - POSTGRES_PASSWORD=postgrespw
+            - POSTGRES_USER=postgres
+            - POSTGRES_DB=telegram
+        hostname: postgresdb
+        container_name: postgres
+        ports:
+            - 5432
